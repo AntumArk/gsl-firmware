@@ -1,0 +1,19 @@
+So my kernel version is 6.8.0
+"When running kernel 6.10 or later you can now test the found min/max values on the kernel commandline."
+So my kernel is out of date
+how to update the kernel to 6.10 or later?
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.10.6/amd64/linux-headers-6.10.6-061006-generic_6.10.6-061006.20231001_amd64.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.10.6/amd64/linux-headers-6.10.6-061006_6.10.6-061006.20231001_all.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.10.6/amd64/linux-image-unsigned-6.10.6-061006-generic_6.10.6-061006.20231001_amd64.deb
+wget https://kernel.ubuntu.com/~kernel-ppa/mainline/v6.10.6/amd64/linux-modules-6.10.6-061006-generic_6.10.6-061006.20231001_amd64.deb
+sudo dpkg -i linux-headers-6.10.6-061006-generic_6.10.6-061006.20231001_amd64.deb linux-headers-6.10.6-061006_6.10.6-061006.20231001_all.deb linux-image-unsigned-6.10.6-061006-generic_6.10.6-061006.20231001_amd64.deb linux-modules-6.10.6-061006-generic_6.10.6-061006.20231001_amd64.deb
+sudo reboot
+
+Technically the 6.10 kernel is not supported, but well. it runs :D. 
+
+touch resolution 7-1845x20-1267
+
+How do you edit this???
+ i2c_touchscreen_props=MSSL1680:touchscreen-min-x=7:touchscreen-min-y=20:touchscreen-size-x=1845:touchscreen-size-y=1267:touchscreen-swapped-x-y:touchscreen-inverted-y
+ sudo nano /etc/default/grub
+ and it worked!
